@@ -1,0 +1,51 @@
+import tkinter as tk
+
+ventana= tk.Tk()
+ventana.title("promedio de notas")
+ventana.geometry("300x435")
+ventana.config(background="paleGreen2")
+var= tk.StringVar()
+
+def promedio():
+    promNotas= float(n_note1.get())+float(n_note2.get())+float(n_note2.get())/3
+    promC= promNotas*0.55
+    promEx= float(n_exam.get())*0.30
+    promTra= float(n_tf.get())*0.15
+
+    promedio= round(promC+promEx+promTra)
+    return  var.set(promedio)
+
+ex= tk.Label(ventana, text= "Ingrese la caliifcacion del examen final:", fg="dark green")
+ex.pack(padx=5, pady=10, ipadx=5, ipady=5)
+n_exam= tk.Entry(ventana, background="snow", )
+n_exam.pack(padx=5, pady=5, ipadx=5, ipady=5)
+
+tf= tk.Label(ventana, text= "Ingrese la caliifcacion del trabajo final:")
+tf.pack()
+n_tf= tk.Entry(ventana)
+n_tf.pack( padx=5, pady=5, ipadx=5, ipady=5)
+
+note1= tk.Label(ventana, text= "Ingrese el valor de la primera nota")
+note1.pack()
+n_note1= tk.Entry(ventana)
+n_note1.pack( padx=5, pady=5, ipadx=5, ipady=5)
+
+note2= tk.Label(ventana, text= "Ingrese el valor de la segunda nota")
+note2.pack()
+n_note2= tk.Entry(ventana)
+n_note2.pack( padx=5, pady=5, ipadx=5, ipady=5)
+
+note3= tk.Label(ventana, text= "Ingrese el valor de la tercera nota")
+note3.pack()
+n_note3= tk.Entry(ventana)
+n_note3.pack( padx=5, pady=5, ipadx=5, ipady=5)
+
+boton1= tk.Button(ventana, text="calcular promedio total", fg="blue", command=promedio)
+note3= tk.Label(ventana, text= "Un aproximado de las notas es de:")
+note3.pack()
+
+res= tk.Label(ventana, textvariable=var)
+res.pack( padx=5, pady=5, ipadx=5, ipady=5)
+
+boton1.pack()
+ventana.mainloop()
